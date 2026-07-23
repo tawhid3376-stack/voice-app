@@ -16,7 +16,7 @@ router.post('/chat', async (req, res) => {
       return res.status(400).json({ error: 'Gemini API key is required' });
     }
 
-    console.log(`💃 User: ${message.slice(0, 80)}...`);
+    console.log(`[User]: ${message.slice(0, 80)}...`);
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
@@ -47,7 +47,7 @@ router.post('/chat', async (req, res) => {
 
     const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'ফुকিখে৫়, আাও ক্পেণস্ব পাওে দর্দ নাক্লুসাকোुও্ব.';
 
-    console.log(`🤖 থেগি: ${reply.slice(0, 80)}...`);
+    console.log(`[Jaya]: ${reply.slice(0, 80)}...`);
     res.json({ reply });
 
   } catch (err) {
